@@ -140,6 +140,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Lab_4.cpp" />
+    <ClCompile Include="Zad_1.cpp" />
+    <ClCompile Include="Zad_2.cpp" />
+    <ClCompile Include="Zad_3.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Header.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
