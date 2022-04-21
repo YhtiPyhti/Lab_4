@@ -6,7 +6,7 @@
 #include "Header.h"
 using namespace std;
 void zad_3() {
-    double Vn = 50, Vexp = 1, Nt = 0.1, x = 0, r = 0;
+    double Vn = 50, Vexp = 1, Nt = 5, x = 0, r = 0;
     int N = 0;
     vector<int> arr, arr1, arr2, v;
 
@@ -23,7 +23,7 @@ void zad_3() {
     for (size_t j = 0; j < 10; j++){
         N = 0;
         for (size_t i = 0; i < 50; i++) {
-            if (arr[i] > j*10 && arr[i] < j*10 + 10) {
+            if (arr[i] >= j*10 && arr[i] < j*10 + 10) {
                 N++;
             }
         }
@@ -33,7 +33,9 @@ void zad_3() {
     for (auto i : v) {
         cout << i << " ";
     }
+
     cout << endl;
+
     for (auto i : v) {
         r = i;
         x += pow((r - Nt), 2) / Nt;
@@ -45,6 +47,7 @@ void zad_3() {
     /// <summary>
     /// 150
     /// </summary>
+    Nt = 15;
     for (size_t i = 0; i < 100; i++) {
         arr1.push_back(uid1(gen));
     }
@@ -76,6 +79,7 @@ void zad_3() {
     /// <summary>
     /// 1000
     /// </summary>
+    Nt =100;
     for (size_t i = 0; i < 1000; i++) {
         arr2.push_back(uid1(gen));
     }
