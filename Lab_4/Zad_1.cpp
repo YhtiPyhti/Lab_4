@@ -17,7 +17,7 @@ double f(double x) {
 void MetPolDel(double a0, double b0, double& e) {
     int k = 0;
     double c = 0, a1 = a0, b1 = b0;
-    while (abs(b1 - a1) >= e) {
+    while (abs(b1 - a1) > e) {
         b0 = b1;
         a0 = a1;
         c = (a0 + b0) / 2;
@@ -56,11 +56,11 @@ void MetPrItr(double x0, double& e) {
 
 void MetNut(double x0, double& e) {
     int k = 0;
-    double x = x0 - y(x0) / f(x0);
-    while (abs(x - x0) > e) {
+    double x = x0 - (y(x0) / f(x0));
+    while (fabs(x - x0) >= e) {
         k++;
         x0 = x;
-        x = x0 - y(x0) / f(x0);
+        x = x0 - (y(x0) / f(x0));
         cout << "N:" << k;
         cout << " Xn: " << x0;
         cout << " Xn+1: " << x;
@@ -71,10 +71,10 @@ void MetNut(double x0, double& e) {
 
 
 void zad_1() {
-    double a0 = -1, b0 = 1, x = 2, e = 0.0001;
+    double a0 = 1, b0 = 2, x = 2, e = 0.0001;
     MetPolDel(a0, b0, e);
     cout << "/////////////////////////////////////////////// " << endl;
-    //MetNut(x, e);
+    MetNut(x, e);
     cout << "/////////////////////////////////////////////// " << endl;
     MetPrItr(x, e);
 }

@@ -6,13 +6,16 @@
 #include "Header.h"
 using namespace std;
 void zad_3() {
-    double Vn = 50, Vexp = 1, Nt = 0.1 * 10, x = 0, r = 0;
-    int k = 0, max = 0, max1 = 0, max2 = 0, N = 0;
+    double Vn = 50, Vexp = 1, Nt = 0.1, x = 0, r = 0;
+    int N = 0;
     vector<int> arr, arr1, arr2, v;
 
     mt19937 gen(time(0));
     uniform_int_distribution<int> uid1(1, 100);
 
+    /// <summary>
+    /// 100
+    /// </summary>
     for (size_t i = 0; i < 50; i++) {
         arr.push_back(uid1(gen));
     }
@@ -32,12 +35,16 @@ void zad_3() {
     }
     cout << endl;
     for (auto i : v) {
-        r = i / 50;
+        r = i;
         x += pow((r - Nt), 2) / Nt;
     }
     cout << "x^2 = " << x;
     v.clear();
 
+
+    /// <summary>
+    /// 150
+    /// </summary>
     for (size_t i = 0; i < 100; i++) {
         arr1.push_back(uid1(gen));
     }
@@ -65,6 +72,10 @@ void zad_3() {
     cout << "x^2 = " << x;
     v.clear();
 
+
+    /// <summary>
+    /// 1000
+    /// </summary>
     for (size_t i = 0; i < 1000; i++) {
         arr2.push_back(uid1(gen));
     }

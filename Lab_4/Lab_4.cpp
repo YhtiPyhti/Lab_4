@@ -5,7 +5,8 @@
 
 #include <iostream>
 #include <random>
-#include <vector>  
+#include <vector>
+#include <map>
 #include <ctime>
 #include <cstdint>
 #include "Header.h"
@@ -28,20 +29,35 @@ void zad_2();
 
 void zad_1();
 
-void zad_4() {
-    int a = 2, N = 0, m = 30539, t0 = 0, r = 28620, t = 0, b = a;
-    t0 = b % m;
-    while (t % m != r) {
-        t = b % m;
-        b = t * t0;
-        N++;
+int zad_4(int a, int b, int m) { // a-numb, b - остаток, m - делитель 
+    map<int, int> vals;
+    int n = (int)sqrt(m) + 1, an = 1, t = 0;
+
+    for (int i = 0; i < n; ++i)
+        an = (an * a) % m; // a^n mod m
+
+    t = an;
+    for (int i = 1; i <= n; ++i) {//шаги младенца
+        if (vals.count(t) == 0) vals[t] = i; // записывается наименьший i
+        t = (t * an) % m;
     }
-    cout << N;
+
+    t = b;
+    for (int i = 0; i <= n; ++i) {
+        if (vals.count(t) != 0) {
+            int ans = vals[t] * n - i;
+            if (ans < m)
+                return ans;
+        }
+        t = (t * a) % m;
+    }
+
+    return -1;
 }
 int main() {
     setlocale(LC_ALL, "Russian");
     //zad_1();
     //zad_2();
-    zad_3();
-   //zad_4();
+    //zad_3();
+    cout << zad_4 (2, 28620, 30539);
 }
