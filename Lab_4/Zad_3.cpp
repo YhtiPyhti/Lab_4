@@ -6,7 +6,7 @@
 #include "Header.h"
 using namespace std;
 void zad_3() {
-    double Vn = 50, Vexp = 1, Nt = 5, x = 0, r = 0;
+    double Vn = 50, Vexp = 1, Nt = 5, x = 0, r = 0, Mx = 0, Mxo = 10;
     int N = 0;
     vector<int> arr, arr1, arr2, v;
 
@@ -35,12 +35,14 @@ void zad_3() {
     }
 
     cout << endl;
-
+    Mx = distance(v.begin(), max_element(v.begin(), v.end()));
     for (auto i : v) {
+        int k = 0;
         r = i;
         x += pow((r - Nt), 2) / Nt;
     }
-    cout << "x^2 = " << x;
+    cout << "x^2 = " << x << endl;
+    cout << "Mx = " << Mx*10 << " - " << (Mx+1)*10;
     v.clear();
 
 
@@ -56,7 +58,7 @@ void zad_3() {
     for (size_t j = 0; j < 10; j++) {
         N = 0;
         for (size_t i = 0; i < 100; i++) {
-            if (arr1[i] > j * 10 && arr1[i] < j * 10 + 10) {
+            if (arr1[i] >= j * 10 && arr1[i] < j * 10 + 10) {
                 N++;
             }
         }
@@ -64,15 +66,17 @@ void zad_3() {
     }
 
     cout << endl;
+    Mx = distance(v.begin(), max_element(v.begin(), v.end()));
     for (auto i : v) {
         cout << i << " ";
     }
     cout << endl;
     for (auto i : v) {
-        r = i / 100;
+        r = i;
         x += pow((r - Nt), 2) / Nt;
     }
-    cout << "x^2 = " << x;
+    cout << "x^2 = " << x << endl;
+    cout << "Mx = " << Mx * 10 << " - " << (Mx + 1) * 10;
     v.clear();
 
 
@@ -88,7 +92,7 @@ void zad_3() {
     for (size_t j = 0; j < 10; j++) {
         N = 0;
         for (size_t i = 0; i < 1000; i++) {
-            if (arr2[i] > j * 10 && arr2[i] < j * 10 + 10) {
+            if (arr2[i] >= j * 10 && arr2[i] < j * 10 + 10) {
                 N++;
             }
         }
@@ -99,11 +103,14 @@ void zad_3() {
     for (auto i : v) {
         cout << i << " ";
     }
+
     cout << endl;
+    Mx = distance(v.begin(), max_element(v.begin(), v.end()));
     for (auto i : v) {
-        r = i / 1000;
+        r = i;
         x += pow((r - Nt), 2) / Nt;
     }
-    cout << "x^2 = " << x;
+    cout << "x^2 = " << x << endl;
+    cout << "Mx = " << Mx * 10 << " - " << (Mx + 1) * 10;
 
 }
