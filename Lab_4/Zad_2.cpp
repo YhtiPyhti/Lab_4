@@ -31,6 +31,7 @@ void zad_2() {
 
     cout << endl;
     cout << "--------------------------" << endl;
+
     swap(arr[max], arr[min]);
 
     for (auto i : arr) {
@@ -48,8 +49,8 @@ void zad_2() {
         cout << v[i] << " ";
     }
 
-    max = distance(v.begin(), max_element(v.begin(), v.end()));
-    swap(v[max], v[0]);
+    v.insert(v.begin(), v[v.size() - 1]);
+    v.erase(v.end()-1);
 
     cout << endl;
     cout << "--------------------------" << endl;

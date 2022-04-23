@@ -57,7 +57,7 @@ int zad_4(int a, int b, int m) { // a-numb, b - остаток, m - делите
 int main() {
     setlocale(LC_ALL, "Russian");
     //zad_1();
-    //zad_2();
-    zad_3();
+    zad_2();
+    //zad_3();
     //cout << zad_4 (2, 28620, 30539);
 }
