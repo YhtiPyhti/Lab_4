@@ -14,7 +14,7 @@ void zad_3() {
     uniform_int_distribution<int> uid1(1, 100);
 
     /// <summary>
-    /// 100
+    /// 50
     /// </summary>
     for (size_t i = 0; i < 50; i++) {
         arr.push_back(uid1(gen));
@@ -23,7 +23,7 @@ void zad_3() {
     for (size_t j = 0; j < 10; j++){
         N = 0;
         for (size_t i = 0; i < 50; i++) {
-            if (arr[i] >= j*10 && arr[i] < j*10 + 10) {
+            if (arr[i] > j*10 && arr[i] <= j*10 + 10) {
                 N++;
             }
         }
@@ -33,6 +33,7 @@ void zad_3() {
     for (auto i : v) {
         cout << i << " ";
     }
+
 
     cout << endl;
     Mx = distance(v.begin(), max_element(v.begin(), v.end()));
@@ -47,9 +48,10 @@ void zad_3() {
 
 
     /// <summary>
-    /// 150
+    /// 100
     /// </summary>
-    Nt = 15;
+    x = 0;
+    Nt = 10;
     for (size_t i = 0; i < 100; i++) {
         arr1.push_back(uid1(gen));
     }
@@ -58,7 +60,7 @@ void zad_3() {
     for (size_t j = 0; j < 10; j++) {
         N = 0;
         for (size_t i = 0; i < 100; i++) {
-            if (arr1[i] >= j * 10 && arr1[i] < j * 10 + 10) {
+            if (arr1[i] > j * 10 && arr1[i] <= j * 10 + 10) {
                 N++;
             }
         }
@@ -83,6 +85,7 @@ void zad_3() {
     /// <summary>
     /// 1000
     /// </summary>
+    x = 0;
     Nt =100;
     for (size_t i = 0; i < 1000; i++) {
         arr2.push_back(uid1(gen));
@@ -92,7 +95,7 @@ void zad_3() {
     for (size_t j = 0; j < 10; j++) {
         N = 0;
         for (size_t i = 0; i < 1000; i++) {
-            if (arr2[i] >= j * 10 && arr2[i] < j * 10 + 10) {
+            if (arr2[i] > j * 10 && arr2[i] <= j * 10 + 10) {
                 N++;
             }
         }
