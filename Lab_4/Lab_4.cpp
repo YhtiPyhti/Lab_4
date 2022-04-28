@@ -31,10 +31,10 @@ void zad_2();
 
 void zad_1();
 
-int zad_4(int a, int b, int m) { // a-numb, b - остаток, m - делитель 
+int zad_4_a(int a, int b, int m) { // a-numb, b - остаток, m - делитель 
     map<int, int> vals;
     int n = (int)sqrt(m) + 1, g = 1, t = 0;
-
+    vector<int> S = { 2,3,5,53 };
     for (int i = 0; i < n; i++)
         g = (g * a) % m; // a^n mod m
 
@@ -57,6 +57,16 @@ int zad_4(int a, int b, int m) { // a-numb, b - остаток, m - делите
     return -1;
 }
 
+int zad_4_b(int a, int b, int m) { // a-numb, b - остаток, m - делитель 
+    auto n = m, k = 50, g = 1;
+    vector<int> S = { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53};
+    
+    for (size_t i = 0; i < k; i++){
+        g = (g * a) % m;
+    }
+    
+    return - 1;
+}
 
 
 int main() {
@@ -64,5 +74,5 @@ int main() {
     //zad_1();
     //zad_2();
     zad_3();
-    //cout << zad_4 (2, 28620, 30539);
+    //cout << zad_4_a (2, 28620, 30539);
 }

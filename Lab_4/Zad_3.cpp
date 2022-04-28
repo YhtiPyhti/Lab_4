@@ -11,8 +11,8 @@
 using namespace std;
 
 void zad_3() {
-    double Vn = 50, Nt, X = 0, Mx = 0, xsr = 0, S = 0, x = 0;
-    vector<int> arr, arr1, arr2, Rt;
+    double Vn = 50, X = 0, Mx = 0, xsr = 0, S = 0;
+    vector<int> arr, arr1, arr2;
     vector<pair<int, int>> v;
 
     mt19937 gen(time(0));
@@ -49,8 +49,7 @@ void zad_3() {
     for (auto i : v) {
         auto u = (i.second - xsr) / S; //(x-xcp)/S
         auto q = 1 / sqrt(6.26) * exp( -(u * u) / 2);
-        Nt = (arr.size() * 10) / S * q;//(n*h)/S * q(u)
-        Rt.push_back(Nt);
+        auto Nt = (arr.size() * 10) / S * q;//(n*h)/S * q(u)
         X += (i.second - Nt) * (i.second - Nt) / Nt;
     }
 
@@ -61,15 +60,18 @@ void zad_3() {
     /// <summary>
     /// 100
     /// </summary>
-    Vn = 100;
+    Vn = 1000;
+    S = 0;
+    xsr = 0;
+    X = 0;
     for (size_t i = 0; i < Vn; i++) {
-        arr.push_back(uid1(gen));
+        arr1.push_back(uid1(gen));
     }
 
     for (size_t j = 0; j < 10; j++) {
         int N = 0;
         for (size_t i = 0; i < Vn; i++) {
-            if (arr[i] > j * 10 && arr[i] <= j * 10 + 10) {
+            if (arr1[i] > j * 10 && arr1[i] <= j * 10 + 10) {
                 N++;
             }
         }
@@ -90,8 +92,7 @@ void zad_3() {
     for (auto i : v) {
         auto u = (i.second - xsr) / S; //(x-xcp)/S
         auto q = 1 / sqrt(6.26) * exp(-(u * u) / 2);
-        Nt = (arr.size() * 10) / S * q;//(n*h)/S * q(u)
-        Rt.push_back(Nt);
+        auto Nt = (arr1.size() * 10) / S * q;//(n*h)/S * q(u)
         X += (i.second - Nt) * (i.second - Nt) / Nt;
     }
 
@@ -104,14 +105,17 @@ void zad_3() {
     /// 1000
     /// </summary>
     Vn = 1000;
+    S = 0;
+    xsr = 0;
+    X = 0;
     for (size_t i = 0; i < Vn; i++) {
-        arr.push_back(uid1(gen));
+        arr2.push_back(uid1(gen));
     }
 
     for (size_t j = 0; j < 10; j++) {
         int N = 0;
         for (size_t i = 0; i < Vn; i++) {
-            if (arr[i] > j * 10 && arr[i] <= j * 10 + 10) {
+            if (arr2[i] > j * 10 && arr2[i] <= j * 10 + 10) {
                 N++;
             }
         }
@@ -132,8 +136,7 @@ void zad_3() {
     for (auto i : v) {
         auto u = (i.second - xsr) / S; //(x-xcp)/S
         auto q = 1 / sqrt(6.26) * exp(-(u * u) / 2);
-        Nt = (arr.size() * 10) / S * q;//(n*h)/S * q(u)
-        Rt.push_back(Nt);
+        auto Nt = (arr2.size() * 10) / S * q;//(n*h)/S * q(u)
         X += (i.second - Nt) * (i.second - Nt) / Nt;
     }
 
