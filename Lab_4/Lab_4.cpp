@@ -9,6 +9,8 @@
 #include <map>
 #include <ctime>
 #include <cstdint>
+#include <algorithm>
+#include <cmath>
 #include "Header.h"
 
 using namespace std;
@@ -54,6 +56,9 @@ int zad_4(int a, int b, int m) { // a-numb, b - остаток, m - делите
     }
     return -1;
 }
+
+
+
 int main() {
     setlocale(LC_ALL, "Russian");
     //zad_1();
