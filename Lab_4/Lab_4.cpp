@@ -56,16 +56,35 @@ int zad_4_a(int a, int b, int m) { // a-numb, b - остаток, m - делит
     }
     return -1;
 }
-
-int zad_4_b(int a, int b, int m) { // a-numb, b - остаток, m - делитель 
-    auto n = m, k = 50, g = 1;
-    vector<int> S = { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53};
-    
-    for (size_t i = 0; i < k; i++){
-        g = (g * a) % m;
+vector<int> find(int n) {
+    vector<int> v;
+    int div = 2;
+    while (n > 1) {
+        while (n % div == 0) {
+            n = n / div;
+            v.push_back(div);
+        }
+        div++;
     }
-    
-    return - 1;
+    return v;
+}
+void zad_4_b() { // a-numb, b - остаток, m - делитель 
+    int g = 10, q = 17, n = 47, k = 7, y = g, t = 0, t0 = g % n, U1=0, U2=0, U3=0, U4=0,a=0,b=0,c=0,d=0;
+    vector<int> S = { 2,3,5 }, ter;
+    vector<pair<int,int>> re;
+    for (int i = 1; i <= k; i++) {
+        t = y % n;
+        y = t * t0;
+        ter = find(t);
+        if (ter[ter.size() - 1] <= S[S.size() - 1]) {
+            re.push_back(pair<int, int>(i, t));
+        }
+        ter.clear();
+    }
+    a = re[0].first;
+    b = re[1].first;
+    c = re[2].first;
+    d = re[3].first;
 }
 
 
@@ -73,6 +92,7 @@ int main() {
     setlocale(LC_ALL, "Russian");
     //zad_1();
     //zad_2();
-    zad_3();
+    //zad_3();
     //cout << zad_4_a (2, 28620, 30539);
+    zad_4_b();
 }
