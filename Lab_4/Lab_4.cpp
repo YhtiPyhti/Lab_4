@@ -78,8 +78,8 @@ int invert(int a, int m){
         }
     }
 }
-void zad_4_b() { // a-numb, b - остаток, m - делитель 
-    int g = 10, q = 37, n = 47, k = 7, y = g, i = 0, t = 0, t0 = g % n, U1=0, U2=0, U3=0, U4=0,a=0,b=0,c=0,d=0;
+void zad_4_b(int g, int q, int n) { // g-numb, q - остаток, n - делитель 
+    int k = 500, y = g, i = 0, t = 0, t0 = g % n, U1=0, U2=0, U3=0, U4=0,a=0,b=0,c=0,d=0, x=0;
     vector<int> S = { 2,3,5 }, ter;
     vector<pair<int,int>> re;
     for (i = 1; i <= k; i++) {
@@ -113,7 +113,9 @@ void zad_4_b() { // a-numb, b - остаток, m - делитель
         ter = find(t);
         if ((ter[ter.size() - 1] <= S[S.size() - 1]) and (ter.size() >= 2)) break;
     }
-    cout << i;
+    x = (4 * U1 - i) % (n-1);//?
+    cout << x;
+
 }
 
 
@@ -123,5 +125,5 @@ int main() {
     //zad_2();
     //zad_3();
     //cout << zad_4_a (2, 28620, 30539);
-    zad_4_b();
+    zad_4_b(28620, 2, 30539);
 }
