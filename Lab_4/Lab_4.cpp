@@ -104,10 +104,11 @@ void zad_4_b() { // a-numb, b - остаток, m - делитель
     }
     else U1 = (2 - U2) % (n - 1) + (n-1);
 
-    t0 = q * g % n;
+    t0 = q % n;
     y = g;
     for (i = 1; i <= k; i++) {
-        t = (q * y) % n;
+        t = y % n;
+        t = q * t % n;
         y = t * t0;
         ter = find(t);
         if ((ter[ter.size() - 1] <= S[S.size() - 1]) and (ter.size() >= 2)) break;
