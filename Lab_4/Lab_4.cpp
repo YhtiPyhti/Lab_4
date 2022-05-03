@@ -68,11 +68,21 @@ vector<int> find(int n) {
     }
     return v;
 }
+
+int invert(int a, int m){
+    int v1 = a, t = 0, t0 = a % m;
+    for (int i = 1; i <= m-1; i++) {
+        t = (a*i) % m;
+        if (t == 1) {
+            return i;
+        }
+    }
+}
 void zad_4_b() { // a-numb, b - остаток, m - делитель 
-    int g = 10, q = 17, n = 47, k = 7, y = g, t = 0, t0 = g % n, U1=0, U2=0, U3=0, U4=0,a=0,b=0,c=0,d=0;
+    int g = 10, q = 37, n = 47, k = 7, y = g, i = 0, t = 0, t0 = g % n, U1=0, U2=0, U3=0, U4=0,a=0,b=0,c=0,d=0;
     vector<int> S = { 2,3,5 }, ter;
     vector<pair<int,int>> re;
-    for (int i = 1; i <= k; i++) {
+    for (i = 1; i <= k; i++) {
         t = y % n;
         y = t * t0;
         ter = find(t);
@@ -85,6 +95,24 @@ void zad_4_b() { // a-numb, b - остаток, m - делитель
     b = re[1].first;
     c = re[2].first;
     d = re[3].first;
+    
+    U2 = invert(3, n-1);
+    U2 = U2 * (b - a + d) % (n-1);
+    U3 = (U2 - 1) % (n - 1);
+    if ((2 - U2) % (n - 1) > 0) {
+        U1 = (2 - U2) % (n - 1);
+    }
+    else U1 = (2 - U2) % (n - 1) + (n-1);
+
+    t0 = q * g % n;
+    y = g;
+    for (i = 1; i <= k; i++) {
+        t = (q * y) % n;
+        y = t * t0;
+        ter = find(t);
+        if ((ter[ter.size() - 1] <= S[S.size() - 1]) and (ter.size() >= 2)) break;
+    }
+    cout << i;
 }
 
 
