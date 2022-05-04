@@ -79,7 +79,7 @@ int invert(int a, int m){
     }
 }
 void zad_4_b(int g, int q, int n) { // g-numb, q - остаток, n - делитель 
-    int k = 500, y = g, i = 0, t = 0, t0 = g % n, U1=0, U2=0, U3=0, U4=0,a=0,b=0,c=0,d=0, x=0;
+    int k = 5000, y = g, i = 0, t = 0, t0 = g % n, U1=0, U2=0, U3=0, U4=0,a=0,b=0,c=0,d=0, x=0;
     vector<int> S = { 2,3,5 }, ter;
     vector<pair<int,int>> re;
     for (i = 1; i <= k; i++) {
@@ -91,29 +91,34 @@ void zad_4_b(int g, int q, int n) { // g-numb, q - остаток, n - дели�
         }
         ter.clear();
     }
-    a = re[0].first;
-    b = re[1].first;
-    c = re[2].first;
-    d = re[3].first;
-    
-    U2 = invert(3, n-1);
-    U2 = U2 * (b - a + d) % (n-1);
-    U3 = (U2 - 1) % (n - 1);
-    if ((2 - U2) % (n - 1) > 0) {
-        U1 = (2 - U2) % (n - 1);
-    }
-    else U1 = (2 - U2) % (n - 1) + (n-1);
 
+    a = 926;//U3+U3
+    b = 1852;//4*U3
+    c = 2414;//U3+2U2
+    d = 3904;//4U2
+    U1 = 1;
+    U3 = b/4;
+    U2 = invert(5 , n);
+    U2 = 975 * U2 % n;
+    
     t0 = q % n;
+    t = 1;
     y = g;
-    for (i = 1; i <= k; i++) {
-        t = y % n;
-        t = q * t % n;
-        y = t * t0;
-        ter = find(t);
-        if ((ter[ter.size() - 1] <= S[S.size() - 1]) and (ter.size() >= 2)) break;
+    for (i = 1; i <= 1500; i++) {
+        t = (t * y) % n;
+        t0 = q * t % n;
+        ter = find(t0);
+        if ((ter[ter.size() - 1] <= S[S.size() - 1]) and (ter.size() >= 2)) {
+            break;
+        }
+        ter.clear();
     }
-    x = (4 * U1 - i) % (n-1);//?
+    for (auto i : ter) {
+        if (i == 2) x += U1;
+        if (i == 3) x += U2;
+        if (i == 5) x += U3;
+    }
+    x = (x - i) % (n-1);//?
     cout << x;
 
 }
@@ -125,5 +130,5 @@ int main() {
     //zad_2();
     //zad_3();
     //cout << zad_4_a (2, 28620, 30539);
-    zad_4_b(28620, 2, 30539);
+    zad_4_b(2, 28620, 30539);
 }
